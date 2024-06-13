@@ -1,0 +1,342 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>bundleid</key>
+	<string>com.spongebink.openroutercredit</string>
+	<key>category</key>
+	<string>A.I.</string>
+	<key>connections</key>
+	<dict>
+		<key>F8CA517C-E11E-4B01-86B6-411E632BAD56</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>01A7F6F3-6736-46AC-B1FD-85E2C58D28F8</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+			<dict>
+				<key>destinationuid</key>
+				<string>9E01E455-62E8-48B2-851E-E6ABE9D6AFCD</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
+	</dict>
+	<key>createdby</key>
+	<string>Sponge Bink</string>
+	<key>description</key>
+	<string>Query your credit usage, models available and their prices on OpenRouter, right in Alfred</string>
+	<key>disabled</key>
+	<false/>
+	<key>name</key>
+	<string>Query OpenRouter Credit / Available Models</string>
+	<key>objects</key>
+	<array>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>alfredfiltersresults</key>
+				<true/>
+				<key>alfredfiltersresultsmatchmode</key>
+				<integer>2</integer>
+				<key>argumenttreatemptyqueryasnil</key>
+				<true/>
+				<key>argumenttrimmode</key>
+				<integer>0</integer>
+				<key>argumenttype</key>
+				<integer>1</integer>
+				<key>escaping</key>
+				<integer>102</integer>
+				<key>keyword</key>
+				<string>{var:keyword_for_listing_models}</string>
+				<key>queuedelaycustom</key>
+				<integer>3</integer>
+				<key>queuedelayimmediatelyinitially</key>
+				<true/>
+				<key>queuedelaymode</key>
+				<integer>0</integer>
+				<key>queuemode</key>
+				<integer>1</integer>
+				<key>runningsubtext</key>
+				<string></string>
+				<key>script</key>
+				<string>/usr/bin/python3 ./list_openrouter_models.py</string>
+				<key>scriptargtype</key>
+				<integer>1</integer>
+				<key>scriptfile</key>
+				<string></string>
+				<key>subtext</key>
+				<string>List OpenRouter models and context length and price info</string>
+				<key>title</key>
+				<string>List Available OpenRouter Models</string>
+				<key>type</key>
+				<integer>11</integer>
+				<key>withspace</key>
+				<true/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.input.scriptfilter</string>
+			<key>uid</key>
+			<string>F8CA517C-E11E-4B01-86B6-411E632BAD56</string>
+			<key>version</key>
+			<integer>3</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>autopaste</key>
+				<false/>
+				<key>clipboardtext</key>
+				<string>{query}</string>
+				<key>ignoredynamicplaceholders</key>
+				<false/>
+				<key>transient</key>
+				<false/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.output.clipboard</string>
+			<key>uid</key>
+			<string>01A7F6F3-6736-46AC-B1FD-85E2C58D28F8</string>
+			<key>version</key>
+			<integer>3</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>alfredfiltersresults</key>
+				<false/>
+				<key>alfredfiltersresultsmatchmode</key>
+				<integer>0</integer>
+				<key>argumenttreatemptyqueryasnil</key>
+				<true/>
+				<key>argumenttrimmode</key>
+				<integer>0</integer>
+				<key>argumenttype</key>
+				<integer>2</integer>
+				<key>escaping</key>
+				<integer>102</integer>
+				<key>keyword</key>
+				<string>{var:keyword_for_querying_usage}</string>
+				<key>queuedelaycustom</key>
+				<integer>3</integer>
+				<key>queuedelayimmediatelyinitially</key>
+				<true/>
+				<key>queuedelaymode</key>
+				<integer>0</integer>
+				<key>queuemode</key>
+				<integer>1</integer>
+				<key>runningsubtext</key>
+				<string>Requesting data…</string>
+				<key>script</key>
+				<string>/usr/bin/python3 openrouter_api_usage.py "$openrouter_api_keys"</string>
+				<key>scriptargtype</key>
+				<integer>1</integer>
+				<key>scriptfile</key>
+				<string></string>
+				<key>subtext</key>
+				<string>Get OpenRouter Credit left for API keys</string>
+				<key>title</key>
+				<string>OpenRouter Credit for API key</string>
+				<key>type</key>
+				<integer>11</integer>
+				<key>withspace</key>
+				<false/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.input.scriptfilter</string>
+			<key>uid</key>
+			<string>0D55BD37-F26F-420B-8017-6A00911E5C9B</string>
+			<key>version</key>
+			<integer>3</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>lastpathcomponent</key>
+				<false/>
+				<key>onlyshowifquerypopulated</key>
+				<false/>
+				<key>removeextension</key>
+				<false/>
+				<key>text</key>
+				<string>{query}</string>
+				<key>title</key>
+				<string>📋️ Model name copied!</string>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.output.notification</string>
+			<key>uid</key>
+			<string>9E01E455-62E8-48B2-851E-E6ABE9D6AFCD</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
+	</array>
+	<key>readme</key>
+	<string># Query OpenRouter Credit / Available Models
+
+Query your credit usage, models available and their prices on [OpenRouter](https://openrouter.ai), right in Alfred
+
+![](images/1.png)
+
+List available models, with their prices, context length:
+
+![](images/3.png)
+
+Normally you will have to go to the [API Keys page](https://openrouter.ai/keys) and [Docs page](https://openrouter.ai/docs/models) to view these info:
+
+![](images/2.png)
+
+![](images/4.png)
+
+### Setup
+
+Download the workflow from the Release page. Double click to install it in Alfred. 
+
+*You can skip this Setup if you just want to use the ‘List available models’ feature.*
+
+Fill the `OpenRouter API Keys` field with the keys and names of them you want to query. Seperate each name and key with `:`, seperate keys with `;`. Like this: 
+
+`Key Name 1:Your Key 1;Key Name 2:Your Key 2`
+
+Click ‘Install’ or ‘Save’. 
+
+### Usage
+
+#### Query API credit usage
+
+Invoke the `aiusageopenrouter` keyword (configurable behind the ‘Configure workflow…’ button with the ‘Keyword for Querying Usage’ field), wait a few seconds and you should see your Credit usage by API key.
+
+![](images/1.png)
+
+#### List / search available models
+
+Search for available models hosted by OpenRouter by invoking the `listopenrouter` keyword (configurable behind the ‘Configure workflow…’ button with the ‘Keyword for Listing Models’ field) and type the keyword.
+
+![](images/5.png)
+
+Or leave empty for all models:
+
+![](images/6.png)
+
+Press return to copy model name. 
+
+![](images/7.png)
+
+### Requirements and dependencies
+
+This workflows requires Python 3 and the `requests` package (included in workflow) to work.</string>
+	<key>uidata</key>
+	<dict>
+		<key>01A7F6F3-6736-46AC-B1FD-85E2C58D28F8</key>
+		<dict>
+			<key>note</key>
+			<string>Copy name of model</string>
+			<key>xpos</key>
+			<real>325</real>
+			<key>ypos</key>
+			<real>85</real>
+		</dict>
+		<key>0D55BD37-F26F-420B-8017-6A00911E5C9B</key>
+		<dict>
+			<key>xpos</key>
+			<real>90</real>
+			<key>ypos</key>
+			<real>265</real>
+		</dict>
+		<key>9E01E455-62E8-48B2-851E-E6ABE9D6AFCD</key>
+		<dict>
+			<key>xpos</key>
+			<real>325</real>
+			<key>ypos</key>
+			<real>265</real>
+		</dict>
+		<key>F8CA517C-E11E-4B01-86B6-411E632BAD56</key>
+		<dict>
+			<key>xpos</key>
+			<real>90</real>
+			<key>ypos</key>
+			<real>85</real>
+		</dict>
+	</dict>
+	<key>userconfigurationconfig</key>
+	<array>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>default</key>
+				<string>Key Name 1:Your Key 1;Key Name 2:Your Key 2</string>
+				<key>required</key>
+				<true/>
+				<key>trim</key>
+				<true/>
+				<key>verticalsize</key>
+				<integer>9</integer>
+			</dict>
+			<key>description</key>
+			<string>Seperate each name and key with `:`, seperate keys with `;`. Like this: Key Name 1:Your Key 1;Key Name 2:Your Key 2</string>
+			<key>label</key>
+			<string>OpenRouter API Keys</string>
+			<key>type</key>
+			<string>textarea</string>
+			<key>variable</key>
+			<string>openrouter_api_keys</string>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>default</key>
+				<string>listopenrouter</string>
+				<key>placeholder</key>
+				<string></string>
+				<key>required</key>
+				<true/>
+				<key>trim</key>
+				<true/>
+			</dict>
+			<key>description</key>
+			<string></string>
+			<key>label</key>
+			<string>Keyword for Listing Models</string>
+			<key>type</key>
+			<string>textfield</string>
+			<key>variable</key>
+			<string>keyword_for_listing_models</string>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>default</key>
+				<string>aiusageopenrouter</string>
+				<key>placeholder</key>
+				<string></string>
+				<key>required</key>
+				<true/>
+				<key>trim</key>
+				<true/>
+			</dict>
+			<key>description</key>
+			<string></string>
+			<key>label</key>
+			<string>Keyword for Querying Usage</string>
+			<key>type</key>
+			<string>textfield</string>
+			<key>variable</key>
+			<string>keyword_for_querying_usage</string>
+		</dict>
+	</array>
+	<key>version</key>
+	<string>0.1</string>
+	<key>webaddress</key>
+	<string>https://github.com/Sponge-bink/alfred-query-openrouter</string>
+</dict>
+</plist>
